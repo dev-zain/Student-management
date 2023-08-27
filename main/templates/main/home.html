@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <title>User Management</title>
+ </head>
+<body>
+    <div class="form-container">
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Department</th>
+                        <th>Generate Card</th>
+                        <th>Full Details</th>
+                        <th>User Picture</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>HR</td>
+                        <td><a href="{% url 'generate_card' %}" class="generate-btn" style="text-decoration: none;">Generate Card</a></td>
+                        <td><a href="{% url 'full_details' %}" class="details-btn" style="text-decoration: none;">Full Details</a></td>
+                        <td><img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80" alt="User" class="user-image"></td>
+                    </tr>
+                    <!-- Add similar rows for other users -->
+                    <tr>
+                      <td>John Doe</td>
+                      <td>HR</td>
+                      <td><a href="{% url 'generate_card' %}" class="generate-btn" style="text-decoration: none;">Generate Card</a></td>
+                      <td><a href="{% url 'full_details' %}" class="details-btn" style="text-decoration: none;">Full Details</a></td>
+                      <td><img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80" alt="User" class="user-image"></td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+{% endblock %}
