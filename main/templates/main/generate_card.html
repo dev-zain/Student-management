@@ -9,17 +9,19 @@
     <div class="card">
         <div class="header">Wapda Post Graduate College Tarbela Dam</div>
         <div class="qr-image-container">
-            <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80" alt="User" class="user-pic">
-            <img src="https://www.techopedia.com/wp-content/uploads/2023/03/aee977ce-f946-4451-8b9e-bba278ba5f13.png" alt="QR Code" class="qr-code">
+            <img src="{{student.photo.url}}" alt="User" class="user-pic">
+            <img src="{{student.qr_code.url}}" alt="QR Code" class="qr-code">
         </div>
         <div class="user-details">
-            <p><label>Name:</label> John Doe</p>
-            <p><label>Roll No:</label> ABC123</p>
-            <p><label>Department:</label> Computer Science</p>
-            <p><label>Identity:</label> Student</p>
-            <p><label>Address:</label> Sobra city H-5 Tarbela Dam</p>
-            <p><label>Contact:</label> 0345-3676338</p>
-            <p><label>Expire Date:</label> 31st Dec 2023</p>
+            <p><label>Name:</label> {{student.student_name}}</p>
+            <p><label>Roll No:</label> {{student.roll_no}}</p>
+            <p><label>Department:</label> {{student.department}}</p>
+            <p><label>ID CARD:</label> {{student.id_card_number}}</p>
+            <p><label>Address:</label>{{student.address}}</p>
+            <p><label>Contact:</label> {{student.contact}}</p>
+            <p><label>Issue Date:</label> {{student.card_issue_date}}</p>
+            <p><label>Expiry Date:</label> {{student.expiry_date}}</p>
+            
         </div>
     </div>
 </body>
