@@ -8,7 +8,7 @@ from django.db.models.signals import pre_delete
 from django.dispatch import receiver
 
 class Student(models.Model):
-    photo = models.ImageField(upload_to='images', default='user-icon.jpg',blank=True)
+    photo = models.ImageField(upload_to='images')
     student_name = models.CharField(max_length=50)
     father_name = models.CharField(max_length=50)
     dob = models.CharField(max_length=20)

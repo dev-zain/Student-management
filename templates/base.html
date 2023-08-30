@@ -11,13 +11,16 @@
     <header>
         <h1 class="header-title">User Management</h1>
         <div class="navbar-items">
-            <button class="action-btn add-user-btn">Add User</button>
-            <button class="action-btn scan-user-btn">Scan User</button>
-            <form class="search-form">
-                <input type="text" class="search-input" placeholder="Search...">
+            <a href="{% url 'add_user' %}" class="action-btn add-user-btn" style="text-decoration: none;"> Add User</a>
+            <a href="{% url 'identify' %}" class="action-btn scan-user-btn" style="text-decoration: none;"> Scan User</a>
+            <form class="search-form" method="GET" action="">
+                
+                <input type="text" class="search-input" name="search" placeholder="Search..." value="{{ search_query }}"> 
+                <input type="hidden" name="previous_search" value="{{ search_query }}">
                 <button type="submit" class="action-btn generate-btn">Search</button>
             </form>
-            <button class="action-btn logout-btn">Logout</button>
+            
+            <a href="{% url 'logout' %}" class="action-btn logout-btn" style="text-decoration: none;">Logout</a>
         </div>
     </header>
 
@@ -25,4 +28,12 @@
 
     {% endblock %}
 </body>
+<script>
+    // Clear the search input field when the page is loaded from the cache.
+    window.addEventListener('pageshow', function(event) {
+        if (event.persisted) {
+            document.querySelector('input[name="search"]').value = '';
+        }
+    });
+</script>
 </html>

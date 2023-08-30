@@ -1,4 +1,3 @@
-
 {% load static %}
 
 <head>
@@ -11,54 +10,76 @@
             <table>
                 <tr>
                     <th>Name</th>
-                    <td>John Doe</td>
+                    <td>{{ student.student_name }}</td>
                 </tr>
-                <!-- Add more fields as needed -->
                 <tr>
                     <th>Father Name</th>
-                    <td>Michael Doe</td>
+                    <td>{{ student.father_name }}</td>
                 </tr>
                 <tr>
-                    <th>Identity</th>
-                    <td>Student</td>
+                    <th>ID Card</th>
+                    <td>{{ student.id_card_number }}</td>
                 </tr>
                 <tr>
                     <th>Contact</th>
-                    <td>0345-1234567</td>
+                    <td>{{ student.contact }}</td>
                 </tr>
                 <tr>
                     <th>Roll No</th>
-                    <td>ABC123</td>
+                    <td>{{ student.roll_no }}</td>
                 </tr>
                 <tr>
                     <th>Department</th>
-                    <td>Computer Science</td>
+                    <td>{{ student.department }}</td>
                 </tr>
                 <tr>
                     <th>Address</th>
-                    <td>Sobra city H-5, Tarbela Dam</td>
+                    <td>{{ student.address }}</td>
                 </tr>
                 <tr>
                     <th>Enrollment Year</th>
-                    <td>2020</td>
+                    <td>{{ student.enrollment_year }}</td>
                 </tr>
                 <tr>
                     <th>Completion Date</th>
-                    <td>June 2024</td>
-                </tr>
-                <tr>
-                    <th>CGPA</th>
-                    <td>3.75</td>
+                    <td>{{ student.completion_date }}</td>
                 </tr>
                 <tr>
                     <th>Email</th>
-                    <td>johndoe@example.com</td>
+                    <td>{{ student.email }}</td>
+                </tr>
+                <tr>
+                    <th>Gender</th>
+                    <td>{{ student.gender }}</td>
+                </tr>
+                <tr>
+                    <th>Emergency Contact</th>
+                    <td>{{ student.emergency_contact }}</td>
+                </tr>
+                <tr>
+                    <th>Blood Group</th>
+                    <td>{{ student.blood_group }}</td>
+                </tr>
+                <tr>
+                    <th>Medical Conditions</th>
+                    <td>{{ student.medical_conditions }}</td>
+                </tr>
+                <tr>
+                    <th>Card Issue Date</th>
+                    <td>{{ student.card_issue_date }}</td>
+                </tr>
+                <tr>
+                    <th>Expiry Date</th>
+                    <td>{{ student.expiry_date }}</td>
                 </tr>
             </table>
         </div>
         <div class="user-pic">
-            <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80" alt="User">
+            <img src="{{ student.photo.url }}" alt="User"> <br>
+            <a href="{% url 'update_student' student.id %}" class="update-btn" style="text-decoration: none;">Update</a>
+            <a href="{% url 'delete_student' student.id %}" class="delete-btn" style="text-decoration: none;">Delete</a>
+
+            
         </div>
     </div>
 </body>
-

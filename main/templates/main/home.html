@@ -27,7 +27,7 @@
                       <td>{{student.student_name}}</td>
                       <td>{{student.department}}</td>
                       <td><a href="{% url 'generate_card' student.id %}" class="generate-btn" style="text-decoration: none;">Generate Card</a></td>
-                      <td><a href="{% url 'full_details' %}" class="details-btn" style="text-decoration: none;">Full Details</a></td>
+                      <td><a href="{% url 'full_details' student.id %}" class="details-btn" style="text-decoration: none;">Full Details</a></td>
                       <td><img src="{{student.photo.url}}" alt="User" class="user-image"></td>
                   </tr>
                   {% endfor %}
