@@ -5,8 +5,10 @@ from django.db.models import Q
 import cv2
 import numpy as np
 from pyzbar.pyzbar import decode
-# Create your views here.
+from django.contrib.auth.decorators import login_required
 
+
+@login_required(login_url='login')
 def home(request):
     search_query = request.GET.get('search')
     students = Student.objects.all()
@@ -21,7 +23,7 @@ def home(request):
     }
     return render(request, 'main/home.html', context)
 
-
+@login_required(login_url='login')
 def generate_card(request,pk):
     student = Student.objects.get(id=pk)
 
@@ -30,6 +32,7 @@ def generate_card(request,pk):
     }
     return render(request,'main/generate_card.html',context)
 
+@login_required(login_url='login')
 def full_details(request,pk):
     student = Student.objects.get(id=pk)
 
@@ -38,6 +41,7 @@ def full_details(request,pk):
     }
     return render(request,'main/full_details.html',context)
 
+@login_required(login_url='login')
 def update_student(request, pk):
     student = Student.objects.get(id=pk)
 
@@ -56,6 +60,7 @@ def update_student(request, pk):
 
     return render(request, 'main/update_student.html', context)
 
+@login_required(login_url='login')
 def delete_student(request,pk):
     student = Student.objects.get(id=pk)
     if request.method == 'POST':
@@ -68,6 +73,7 @@ def delete_student(request,pk):
     return render(request,'main/delete_student.html',context)
 
 
+@login_required(login_url='login')
 def add_user(request):
     if request.method == 'POST':
         form = StudentForm(request.POST, request.FILES)
@@ -84,6 +90,7 @@ def add_user(request):
     return render(request, 'main/add_user.html', context)
 
     
+@login_required(login_url='login')
 def identify(request):
     try:
         cap = cv2.VideoCapture(0)

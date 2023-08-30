@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <h1 class="header-title">User Management</h1>
+        <a href="{% url 'home' %}" style="text-decoration: none;"> <h1 class="header-title">Student Management</h1> </a>
         <div class="navbar-items">
             <a href="{% url 'add_user' %}" class="action-btn add-user-btn" style="text-decoration: none;"> Add User</a>
             <a href="{% url 'identify' %}" class="action-btn scan-user-btn" style="text-decoration: none;"> Scan User</a>
